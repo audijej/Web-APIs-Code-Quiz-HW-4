@@ -1,3 +1,13 @@
+/* .container {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+} */
+
 .display-4 {
     text-align: center;
 }
@@ -27,4 +37,23 @@
     background-color: purple;
     color: gold;
     font-weight: bolder;
+}
+
+.button {
+    background-color: aqua;
+    display: block;
+    width: 100px;
+    margin: auto;
+    
+}
+
+.button:hover {
+    background-color: purple;
+    color: gold;
+    font-weight: bolder;
+}
+
+#countdown {
+    font: bolder;
+    font-size: 30px;
 }

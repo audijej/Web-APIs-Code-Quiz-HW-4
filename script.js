@@ -1,36 +1,105 @@
-alert("This is a multiple choice and timed quiz. Good luck!")
-
-const answer1 = document.querySelector("answerA");
-const answer2 = document.querySelector("answerB");
-const answer3 = document.querySelector("answerC");
-const answer4 = document.querySelector("answerD");
+//alert("This is a multiple choice and timed quiz. Good luck!")
 
 
-function questions() {
+const quizQuestions = [
+
+    {
+        question: "Name a farm animal??????",
+        answers: {
+            a: 'lion',
+            b: 'tiger',
+            c: 'cow',
+            d: 'girrafe',
+    },
+        correctAnswer: "c"
+
+    },
+
+    {
+        question: "What color is the sky?",
+        answers: {
+            a: 'red',
+            b: 'green',
+            c: 'blue',
+            d: 'purple',
+        },
+
+        correctAnswer: "c"
+    
+        },
+
+    {
+        question: "Which state is NOT on the West Coast?",
+        answers: {
+            a: 'Washington',
+            b: 'California',
+            c: 'New York',
+            d: 'Oregon',
+        },
+
+        correctAnswer: "c"
+    
+    },
+
+    {
+      question: "What is the capital of the United States?",
+        answers: {
+            a: 'Montana',
+            b: 'Nevada',
+            c: 'Washington DC',
+            d: 'Arizona',
+        },
+
+        correctAnswer: "c"
+    
+        }, 
+    
+        {
+        question: "What color are strawberries?",
+        answers: {
+            a: 'Blue',
+            b: 'Yellow',
+            c: 'Red',
+            d: 'Green',
+        },
+
+       correctAnswer: "a"
+    },
+];
 
 
-    let farmAnimal = prompt("Name a farm animal?")
+let timerSeconds = 60;
+let secondsElapsed = 0;
 
+let seconds = document.getElementById("countdown").textContent;
+let questionElement = document.getElementById("question");
+let answerElement = document.getElementById("multiple-choice-buttons");
 
+let countdownTimer = setInterval(function() {
+    seconds--;
+    document.getElementById("countdown").textContent = seconds;
+    if (seconds <= 0) clearInterval(countdownTimer);
+}, 1000);
 
-    let skyColor = prompt("What color is the sky?")
+const startButton = document.getElementById("start-button");
 
+// startButton.addEventListener("click", startGame);
 
+// function startGame() {
+//     console.log("Let's get started")
+// }
 
-    let westCoast = prompt("Which state is not on the West Coast?")
+let button = document.querySelector("button");
 
+function changeGreen(event) {
+    event.currentTarget.setAttribute(
+      "style",
+      "background-color: green"
+    );
+  }
+  
+  button.addEventListener("click", changeGreen);
 
-
-    let stateCapital = prompt("What is the capital of the United States?")
-
-
-
-    let straberryColor = prompt("What color are strawberries?")
-
-
-};
-
-let generateBtn = document.querySelector("#start-button");
-
-generateBtn.addEventListener("click", questions);    
-
+  function showQuestion() {
+    questionElement.innerHTML = quizQuestions
+  }

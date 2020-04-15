@@ -12,20 +12,20 @@
 
     <nav class="navbar navbar-light bg-light">
         <a class="navbar-brand" href="#">View Highscores</a>
+        <div id="time">
+            <span id="countdown">120</span>
+          </div>
       </nav>
 
         <div class="jumbotron">
-            <div class="Question1">
-                Name a farm animal?
-            </div>
-            <div class="multiple-choice">
-                <div id="w" class="answerA">Lion</div>
-                <div id="x" class="answerB">Cow</div>
-                <div id="y" class="answerC">Tiger</div>
-                <div id="z" class="answerD">Girrafe</div>
-            </div>
-            <div class="button">
-                <button type="button" class="btn">Next</button>
+            <div class="container">
+                <div id="question"></div>
+                <div id="multiple-choice-buttons" class="multiple-choice-grid">
+                    <button class="button">AnswerA</button>
+                    <button class="button">AnswerB</button>
+                    <button class="button">AnswerC</button>
+                    <button class="button">AnswerD</button>
+                </div>
             </div>
         </div>
     
