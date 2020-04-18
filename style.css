@@ -51,9 +51,22 @@
     background-color: purple;
     color: gold;
     font-weight: bolder;
+    width: 500px;
+    animation: ease-out;
+    transition-delay: .25s;
 }
 
 #countdown {
     font: bolder;
     font-size: 30px;
+}
+
+#question {
+    font: bolder;
+    font-size: 50px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#response {
+    font-weight: bolder;
 }
