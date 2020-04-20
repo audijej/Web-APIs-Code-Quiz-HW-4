@@ -74,43 +74,61 @@ let quizQuestions = [
     },
 ];
 
-let currentQuestion = 0;
-let questionEl = document.getElementById("question");
-let choicesEl = document.getElementById("multiple-choice-buttons");
-let questionData =  quizQuestions[currentQuestion];
-questionEl.textContent = questionData.question;
-choicesEl.innerHTML = "";
 
-function showQuestion () {
+
+function showQuestion (){
+
+    let currentQuestion = 0;
+    let questionDiv = document.getElementById("question");
+    let choicesEl = document.getElementById("multiple-choice-buttons");
+    let questionData =  quizQuestions[currentQuestion];
+    questionDiv.textContent = questionData.question;
+    choicesEl.innerHTML = "";
+    
+
 for (let choice of questionData.choices) {
     //let choiceBtn = document.createElement("button");
     let button = document.createElement("button")
     button.setAttribute("type", "button");
-    button.setAttribute("class", "button");
+    button.setAttribute("class", "button choice-button");
     button.setAttribute("value", choice);
     button.textContent = choice;
     choicesEl.appendChild(button);
 
     button.addEventListener("click", function() {
         let userChoice = button.value;
-
         let responseChoice = document.getElementById("response");
-        if (userChoice === quizQuestions[0].answer) {
+        if (userChoice === quizQuestions[currentQuestion].answer) {
             responseChoice.textContent = "Correct";
         }
         else {
             responseChoice.textContent = "Wrong";
         }
+
+        if(quizQuestions.length) {
+            showQuestion(quizQuestions.shift());
+        }
+
+        else {
+            alert("all done");
+        }
+        
     });
+
 }
+console.log(currentQuestion);
+
+
 };
 
 
-// while(currentQuestion < quizQuestions.length) {
-//     showQuestion(quizQuestions,currentQuestion);
-// }
+
+showQuestion();
 
 
+function setNextQuestion() {
+    hola(questionData, button);
+}
 
 
 // function showQuestion() {
@@ -143,11 +161,11 @@ for (let choice of questionData.choices) {
 
 // let body = document.body;
 
-// let questionEl = document.createElement("div");
-// let questionEl2 = document.createElement("div");
-// let questionEl3 = document.createElement("div");
-// let questionEl4 = document.createElement("div");
-// let questionEl5 = document.createElement("div");
+// let questionDiv = document.createElement("div");
+// let questionDiv2 = document.createElement("div");
+// let questionDiv3 = document.createElement("div");
+// let questionDiv4 = document.createElement("div");
+// let questionDiv5 = document.createElement("div");
 // let answerList = document.createElement("ul");
 // let op1 = document.createElement("button");
 // let op2 = document.createElement("button");
@@ -156,27 +174,27 @@ for (let choice of questionData.choices) {
 
 // let listItems = document.getElementById("button");
 
-// questionEl.textContent = "Name a farm animal?";
-// questionEl2.textContent = "What color is the sky?"
-// questionEl3.textContent = "Which state is not on the west coast?"
-// questionEl4.textContent = "What is the capital of the United States?"
-// questionEl5.textContent = "What coloe are strawberries?"
+// questionDiv.textContent = "Name a farm animal?";
+// questionDiv2.textContent = "What color is the sky?"
+// questionDiv3.textContent = "Which state is not on the west coast?"
+// questionDiv4.textContent = "What is the capital of the United States?"
+// questionDiv5.textContent = "What coloe are strawberries?"
 // op1.textContent = "lion";
 // op2.textContent = "tiger";
 // op3.textContent = "cow";
 // op4.textContent = "giraffe";
 
-// body.appendChild(questionEl);
-// body.appendChild(questionEl2);
-// body.appendChild(questionEl3);
-// body.appendChild(questionEl4);
-// body.appendChild(questionEl5);
+// body.appendChild(questionDiv);
+// body.appendChild(questionDiv2);
+// body.appendChild(questionDiv3);
+// body.appendChild(questionDiv4);
+// body.appendChild(questionDiv5);
 // body.appendChild(answerList);
-// questionEl.appendChild(op1);
-// questionEl.appendChild(op2);
-// questionEl.appendChild(op3);
-// questionEl.appendChild(op4);
-// questionEl.appendChild(answerList);
+// questionDiv.appendChild(op1);
+// questionDiv.appendChild(op2);
+// questionDiv.appendChild(op3);
+// questionDiv.appendChild(op4);
+// questionDiv.appendChild(answerList);
 
 // let firstQuestion = document.getElementById("question");
 // firstQuestion.innerHTML = "Name a farm animal?"
@@ -257,10 +275,10 @@ for (let choice of questionData.choices) {
 // showQuestion();
 
 
-//const questionElement = document.getElementById("question").innerHTML = questionairre;
+//const questionDivement = document.getElementById("question").innerHTML = questionairre;
 // const answerElement = document.getElementById("multiple-choice-grid").innerText = answerList
 
-// const questionElement = document.getElementById("question");
+// const questionDivement = document.getElementById("question");
 // count = 0;
 
 // button.addEventListener("click", function() {
