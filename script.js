@@ -84,6 +84,7 @@ function showQuestion (){
     let questionData =  quizQuestions[currentQuestion];
     questionDiv.textContent = questionData.question;
     choicesEl.innerHTML = "";
+
     
 
 for (let choice of questionData.choices) {
@@ -97,12 +98,23 @@ for (let choice of questionData.choices) {
 
     button.addEventListener("click", function() {
         let userChoice = button.value;
+        let counter = document.querySelector("#Highscore-tracker");
+        let score = localStorage.getItem("score");
+        counter.textContent = score;
         let responseChoice = document.getElementById("response");
         if (userChoice === quizQuestions[currentQuestion].answer) {
             responseChoice.textContent = "Correct";
+            score++;
+            counter.textContent = score;
+            localStorage.setItem("score", score);
+
         }
         else {
             responseChoice.textContent = "Wrong";
+            score--;
+            counter.textContent = score;
+            localStorage.setItem("score", score);
+
         }
 
         if(quizQuestions.length) {
@@ -116,7 +128,7 @@ for (let choice of questionData.choices) {
     });
 
 }
-console.log(currentQuestion);
+console.log(score);
 
 
 };
