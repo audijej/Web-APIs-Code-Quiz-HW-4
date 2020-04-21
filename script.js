@@ -84,6 +84,7 @@ function showQuestion (){
     let questionData =  quizQuestions[currentQuestion];
     questionDiv.textContent = questionData.question;
     choicesEl.innerHTML = "";
+    let score = 5;
 
     
 
@@ -96,39 +97,36 @@ for (let choice of questionData.choices) {
     button.textContent = choice;
     choicesEl.appendChild(button);
 
+
     button.addEventListener("click", function() {
         let userChoice = button.value;
-        let counter = document.querySelector("#Highscore-tracker");
-        let score = localStorage.getItem("score");
-        counter.textContent = score;
+        let counter = document.getElementById("Highscore-tracker");
         let responseChoice = document.getElementById("response");
         if (userChoice === quizQuestions[currentQuestion].answer) {
             responseChoice.textContent = "Correct";
-            score++;
-            counter.textContent = score;
-            localStorage.setItem("score", score);
-
+            score = score +1;
+            counter.innerHTML = score;
+            
         }
         else {
             responseChoice.textContent = "Wrong";
-            score--;
-            counter.textContent = score;
-            localStorage.setItem("score", score);
-
+            seconds = seconds-20
+            score = score -1;
+            counter.innerHTML = score;
         }
 
-        if(quizQuestions.length) {
+        if(quizQuestions.length-1) {
             showQuestion(quizQuestions.shift());
         }
 
         else {
-            alert("all done");
+            alert("Congratulations. You've completed the quiz!");
         }
-        
+        console.log(score);
+
     });
 
 }
-console.log(score);
 
 
 };
