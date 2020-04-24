@@ -75,6 +75,7 @@ let quizQuestions = [
 ];
 
 
+let score = 5;
 
 function showQuestion (){
 
@@ -84,8 +85,7 @@ function showQuestion (){
     let questionData =  quizQuestions[currentQuestion];
     questionDiv.textContent = questionData.question;
     choicesEl.innerHTML = "";
-    let score = 5;
-
+    
     
 
 for (let choice of questionData.choices) {
