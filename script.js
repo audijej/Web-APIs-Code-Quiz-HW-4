@@ -3,7 +3,7 @@
 
 let timerSeconds = 60;
 let secondsElapsed = 0;
-let score = 5;
+let score = 0;
 
 
 let seconds = document.getElementById("countdown").textContent;
@@ -82,14 +82,14 @@ function showQuestion() {
             if (userChoice === quizQuestions[currentQuestion].answer) {
                 responseChoice.textContent = "Correct";
                 score = score + 1;
-                counter.innerHTML = score;
+                counter.innerHTML = "Score: " + score;
 
             }
             else {
                 responseChoice.textContent = "Wrong";
                 seconds = seconds - 20
                 score = score - 1;
-                counter.innerHTML = score;
+                counter.innerHTML = "Score: " + score;
             }
 
             if (quizQuestions.length - 1) {
@@ -99,7 +99,6 @@ function showQuestion() {
             else {
                 alert("Congratulations. You've completed the quiz!");
             }
-            console.log(score);
 
         });
 
