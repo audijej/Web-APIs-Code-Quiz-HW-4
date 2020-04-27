@@ -29,7 +29,7 @@ let quizQuestions = [
 
     {
         question: "What color is the sky?",
-        choices: ["red", "green", "blue", "purple"],
+        choices: ["blue", "green", "red", "purple"],
         answer: "blue"
     },
 
@@ -42,7 +42,7 @@ let quizQuestions = [
 
     {
         question: "What is the capital of the United States?",
-        choices: ["Montana", "Nevada", "Washington DC", "Arizona"],
+        choices: ["Montana", "Washington DC", "Nevada", "Arizona"],
         answer: "Washington DC"
 
     },
@@ -53,6 +53,8 @@ let quizQuestions = [
         answer: "Red"
     },
 ];
+
+
 
 //function that runs for loop to run the object array and click listener
 function showQuestion() {
@@ -97,13 +99,12 @@ function showQuestion() {
             }
 
             else {
-                alert("Congratulations. You've completed the quiz!");
+                alert("Congratulations. You've completed the quiz! Please see your score to the left.");
             }
 
         });
 
     }
-
 
 };
 
@@ -111,8 +112,4 @@ function showQuestion() {
 
 showQuestion();
 
-
-function setNextQuestion() {
-    hola(questionData, button);
-}
 
